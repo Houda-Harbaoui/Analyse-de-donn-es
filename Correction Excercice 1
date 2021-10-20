@@ -1,0 +1,33 @@
+Entree : T liste de n nombres non triée.                                    
+Sortie : liste T triée                              
+Traitement :
+Pour j de 0 à n
+indiceMin <-- j                                   
+    Pour k de j + 1 à n                                  
+         si T [indiceMin] < T [k] alors                                
+              indiceMin <-- k                                       
+        finSi                                                  
+    finPour                                                  
+Echange de T [j] et T [indiceMin] si j!= indiceMin                       
+finPour   
+
+# Correction
+def tri_selection(tab):
+   for i in range(len(tab)):
+      # Trouver le min
+       min = i
+       for j in range(i+1, len(tab)):
+           if tab[min] > tab[j]:
+               min = j
+                
+       tmp = tab[i]
+       tab[i] = tab[min]
+       tab[min] = tmp
+   return tab
+# Programme principale pour tester le code ci-dessus
+tab = [98, 22, 15, 32, 2, 74, 63, 70]
+ 
+tri_selection(tab)
+ 
+print ("Le tableau trié est:")
+print(tab)
